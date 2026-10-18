@@ -1,0 +1,183 @@
+/* Cores, fontes e espaçamentos do protótipo do Grafema. */
+:root {
+  --sheet: #f5f4f6;
+  --warm: #faf6f5;
+  --cool: #eef3ef;
+  --panel: #fbfafb;
+  --white: #ffffff;
+  --ink: #16181a;
+  --ink-2: #5e5f66;
+  --hair: #c9c7c4;
+  --soft: #e3e1e0;
+  --lav: #dcddf3;
+  --lav-d: #4a4eb0;
+  --danger: #a8261e;
+  --ok: #2f6b3a;
+  --ui: 'Host Grotesk', ui-sans-serif, system-ui, sans-serif;
+  --mono: 'Fragment Mono', ui-monospace, Menlo, monospace;
+  --glyph: 'Source Sans 3', sans-serif;
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+}
+
+body {
+  background: var(--sheet);
+  background-image:
+    radial-gradient(1100px 760px at 0% 0%, var(--warm), transparent 62%),
+    radial-gradient(1000px 700px at 100% 100%, var(--cool), transparent 62%);
+  background-attachment: fixed;
+  color: var(--ink);
+  font: 400 14px/1.5 var(--ui);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--lav);
+  color: var(--ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--lav-d);
+  outline-offset: 2px;
+}
+
+h1,
+p,
+dl,
+dd {
+  margin: 0;
+}
+
+.mono {
+  font-family: var(--mono);
+  font-variant-numeric: tabular-nums;
+}
+
+.marca {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font: 600 17px/1 var(--ui);
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.marca svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.2;
+}
+
+.inicio {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 480px;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+.inicio-placa {
+  padding: 40px 56px 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.inicio-placa h1 {
+  font: 400 clamp(44px, 5.4vw, 84px) / 0.98 var(--ui);
+  letter-spacing: -0.035em;
+  max-width: 11ch;
+  text-wrap: balance;
+  margin-top: 12vh;
+}
+
+.lede {
+  font-size: 18px;
+  line-height: 1.5;
+  color: #33353a;
+  max-width: 44ch;
+}
+
+.inicio-lado {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+  padding: 48px 56px;
+  background: var(--panel);
+  border-left: 1px solid var(--hair);
+}
+
+.etiqueta {
+  align-self: flex-start;
+  padding: 4px 10px;
+  background: var(--lav);
+  font: 500 12.5px/1.4 var(--ui);
+}
+
+.aviso {
+  color: var(--ink-2);
+}
+
+.saude {
+  display: grid;
+  gap: 0;
+  margin-top: 12px;
+  border-top: 1px solid var(--hair);
+}
+
+.saude div {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--soft);
+}
+
+.saude dt {
+  font-weight: 500;
+}
+
+.saude .ok {
+  color: var(--ok);
+}
+
+.saude .erro {
+  color: var(--danger);
+}
+
+.saude .verificando {
+  color: var(--ink-2);
+}
+
+@media (max-width: 900px) {
+  .inicio {
+    grid-template-columns: 1fr;
+    align-content: start;
+  }
+
+  .inicio-placa {
+    padding: 28px 16px 8px;
+  }
+
+  .inicio-placa h1 {
+    margin-top: 32px;
+  }
+
+  .inicio-lado {
+    border-left: 0;
+    padding: 24px 16px 48px;
+    background: transparent;
+    justify-content: flex-start;
+  }
+}

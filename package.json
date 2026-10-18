@@ -1,0 +1,40 @@
+{
+  "name": "grafema",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Editor de fontes e alfabetos no navegador.",
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "dev": "concurrently -n api,web -c blue,magenta \"npm:dev:api\" \"npm:dev:web\"",
+    "dev:api": "tsx watch server/src/index.ts",
+    "dev:web": "vite",
+    "build": "vite build && tsc -p tsconfig.server.json",
+    "start": "node dist/server/src/index.js",
+    "test": "vitest run",
+    "typecheck": "tsc -p tsconfig.test.json && tsc -p web/tsconfig.json"
+  },
+  "dependencies": {
+    "express": "^5.3.0",
+    "pg": "^8.23.1",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^24.19.2",
+    "@types/pg": "^8.23.1",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@types/supertest": "^7.2.1",
+    "@vitejs/plugin-react": "^6.1.2",
+    "concurrently": "^10.0.6",
+    "supertest": "^7.3.1",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.4",
+    "vitest": "^5.0.5"
+  }
+}
